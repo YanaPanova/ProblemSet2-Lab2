@@ -1,0 +1,53 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h> //isdigir
+
+int main(int argc, string argv[])
+//argc = argument count (кількість аргументів)
+//argv = argument vector(вектор агрументів)
+{
+    if (argc !=2)  //переввірка наявності 1 аргументу кр
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+
+    string key = argv[1];
+
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        if (!isdigit(argv[1][i]))
+        //якщо ведене значення не є числом, то виводиться: Usage: ./caesar key
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
+
+    }
+
+    string text = get_string("Usertext: ");
+    int k = atoi(key);
+    // конвертування ключа в ціле число
+    printf("Ciphertext: ");
+
+    for (int i = 0; i < strlen(text); i++)
+    {
+        if (ispper(tetx[i])) //виведення зашифрованого тексту для верхнього регістру
+        {
+            printf("%c", (((text[i]-65) + k) %26) + 65);
+        }
+
+        else if (islower(text[i]))
+            {
+                printf("%c", (((text[i] - 97) + k) %26) = 97); //виведення зашифрованого тексту для нижнього регістру 
+            }
+        else
+        {
+            printf("%c", text[i]);
+        }
+
+    }
+    printf("\n");
+
+}
